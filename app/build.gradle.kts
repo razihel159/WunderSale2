@@ -44,7 +44,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -71,7 +71,7 @@ dependencies {
         implementation("com.shuhart.stepview:stepview:1.5.1")
 
         // Android KTX
-        implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
+        implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
         // Dagger Hilt
         implementation("com.google.dagger:hilt-android:2.41.1")
