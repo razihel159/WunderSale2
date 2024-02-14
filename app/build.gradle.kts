@@ -75,7 +75,6 @@ dependencies {
 
         // Dagger Hilt
         implementation("com.google.dagger:hilt-android:2.41.1")
-        kapt("com.google.dagger:hilt-compiler:2.41.1")
     }
 
 
