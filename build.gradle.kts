@@ -5,10 +5,10 @@ buildscript {
     }
     dependencies {
         // Dagger Hilt Android Gradle plugin
-        classpath("com.google.dagger:hilt-android-gradle-plugin:2.41.1")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.50")
 
         // Google Services plugin
-        classpath("com.google.gms:google-services:4.3.13")
+        classpath("com.google.gms:google-services:4.4.1")
 
         // Navigation Safe Args Gradle plugin
         def nav_version = "2.5.0"
