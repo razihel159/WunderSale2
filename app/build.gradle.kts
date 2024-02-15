@@ -69,8 +69,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.41.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.41.1")
+    implementation("com.google.dagger:hilt-android:2.5.0")
+    kapt("com.google.dagger:hilt-android-compiler:2.5.0")
 }
 
 // Required for Dagger Hilt
