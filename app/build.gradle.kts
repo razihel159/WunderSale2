@@ -48,16 +48,16 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     // Custom dependencies
-    implementation("br.com.simplepass:loading-button-android:2.3.0")
-    implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.2")
+    implementation ("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
     implementation("com.shuhart.stepview:stepview:1.5.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.5.0")
-    kapt("com.google.dagger:hilt-android-compiler:2.5.0")
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.50")
 }
 
 kapt {
