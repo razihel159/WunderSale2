@@ -1,4 +1,4 @@
-package com.stevenlopez.block2.p1.wundersale.Activity
+package com.stevenlopez.block2.p1.wundersale.fragments.loginSignup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

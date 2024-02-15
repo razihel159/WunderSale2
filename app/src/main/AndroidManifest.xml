@@ -13,7 +13,7 @@
         android:theme="@style/Theme.WunderSale"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.ShoppingActivity"
+            android:name=".fragments.loginSignup.ShoppingActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.LoginSignupActivity"
