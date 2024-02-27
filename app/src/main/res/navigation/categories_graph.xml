@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/categories_graph"
+    app:startDestination="@id/textbooksFragment">
+    <fragment
+        android:id="@+id/textbooksFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.TextbooksFragment"
+        android:label="TextbooksFragment" >
+        <action
+            android:id="@+id/action_textbooksFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_textbooksFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clothAccessFragment2"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.ClothAccessFragment"
+        android:label="ClothAccessFragment" >
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_clothAccessFragment2_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/electronicsFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.ElectronicsFragment"
+        android:label="ElectronicsFragment" >
+        <action
+            android:id="@+id/action_electronicsFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_electronicsFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/furDormFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.FurDormFragment"
+        android:label="FurDormFragment" >
+        <action
+            android:id="@+id/action_furDormFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_furDormFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_furDormFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameHobbFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.GameHobbFragment"
+        android:label="GameHobbFragment" >
+        <action
+            android:id="@+id/action_gameHobbFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_gameHobbFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/missFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.MissFragment"
+        android:label="MissFragment" >
+        <action
+            android:id="@+id/action_missFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_missFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_missFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.ServicesFragment"
+        android:label="ServicesFragment" >
+        <action
+            android:id="@+id/action_servicesFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_servicesFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportsFitFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.SportsFitFragment"
+        android:label="SportsFitFragment" >
+        <action
+            android:id="@+id/action_sportsFitFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+        <action
+            android:id="@+id/action_sportsFitFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/suppliesFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.SuppliesFragment"
+        android:label="SuppliesFragment" >
+        <action
+            android:id="@+id/action_suppliesFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_suppliesFragment_to_transportationFragment"
+            app:destination="@id/transportationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transportationFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.categories.TransportationFragment"
+        android:label="TransportationFragment" >
+        <action
+            android:id="@+id/action_transportationFragment_to_clothAccessFragment2"
+            app:destination="@id/clothAccessFragment2" />
+        <action
+            android:id="@+id/action_transportationFragment_to_textbooksFragment"
+            app:destination="@id/textbooksFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_electronicsFragment"
+            app:destination="@id/electronicsFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_furDormFragment"
+            app:destination="@id/furDormFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_gameHobbFragment"
+            app:destination="@id/gameHobbFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_missFragment"
+            app:destination="@id/missFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_sportsFitFragment"
+            app:destination="@id/sportsFitFragment" />
+        <action
+            android:id="@+id/action_transportationFragment_to_suppliesFragment"
+            app:destination="@id/suppliesFragment" />
+    </fragment>
+</navigation>
