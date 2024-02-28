@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/edFirstName"
+            android:id="@+id/edFullName"
             style="@style/editText"
             android:layout_width="315dp"
             android:layout_height="52dp"
@@ -37,13 +37,13 @@
             android:layout_marginTop="312dp"
             android:background="@color/white"
             android:ems="10"
-            android:hint="First Name"
+            android:hint="Full Name"
             android:inputType="textEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/edLastName"
+            android:id="@+id/edStuNum"
             style="@style/editText"
             android:layout_width="315dp"
             android:layout_height="52dp"
@@ -51,7 +51,7 @@
             android:layout_marginTop="388dp"
             android:background="@color/white"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="Student Number"
             android:inputType="textEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -92,46 +92,6 @@
             android:layout_marginTop="607dp"
             android:background="@color/g_green"
             android:text="Register"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="676dp"
-            android:background="@color/g_dark_blue"
-            android:src="@drawable/facebook_login"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="684dp"
-            android:text="Facebook"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="248dp"
-            android:layout_marginTop="676dp"
-            android:background="@color/g_red"
-            android:src="@drawable/google_login"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="284dp"
-            android:layout_marginTop="684dp"
-            android:text="Gmail"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
