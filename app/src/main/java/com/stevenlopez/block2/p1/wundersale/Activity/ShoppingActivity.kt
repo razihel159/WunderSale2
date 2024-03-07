@@ -14,17 +14,5 @@ class ShoppingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
-
-        val postAPI = RetrofitHelper.getInstance().create(Api::class.java)
-
-        GlobalScope.launch {
-            val response = postAPI.getProductsList()
-
-            if (response != null) {
-                Log.d("HelloResponse", response.body().toString())
-            }
-
-
-        }
     }
 }
