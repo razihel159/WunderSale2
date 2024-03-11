@@ -2,17 +2,20 @@ package com.stevenlopez.block2.p1.wundersale.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.stevenlopez.block2.p1.wundersale.R
-import com.stevenlopez.block2.p1.wundersale.data.Api
-import com.stevenlopez.block2.p1.wundersale.data.RetrofitHelper
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.create
+
 
 class ShoppingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        val navController = findNavController(R.id.shoppingHostFragment)
+        bottomNavigation.setupWithNavController(navController)
+
     }
 }
