@@ -9,10 +9,5 @@ class LoginSignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_signup)
-        val myFragment = introductionFragment()
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, myFragment)
-            .commit()
     }
 }

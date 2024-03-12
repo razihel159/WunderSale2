@@ -14,11 +14,11 @@
 
         <ImageView
             android:id="@+id/imageProduct"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="128dp"
+            android:layout_height="116dp"
             android:layout_gravity="center"
-            android:src="@drawable/upang_logo"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/upang_logo" />
 
         <TextView
             android:id="@+id/textProductName"
@@ -28,6 +28,15 @@
             android:textColor="@android:color/black"
             android:textAlignment="center"
             android:text="Product Name"/>
+
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:text="Product Category"/>
 
         <TextView
             android:id="@+id/textProductPrice"
