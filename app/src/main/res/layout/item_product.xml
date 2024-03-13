@@ -46,6 +46,8 @@
             android:textAlignment="center"
             android:textColor="@android:color/darker_gray"
             android:text="Product Price"/>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

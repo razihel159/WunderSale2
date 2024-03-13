@@ -9,7 +9,7 @@ import retrofit2.create
 
 object RetrofitHelper {
 
-    val api: Api by lazy {
+    val instance: Api by lazy {
         Retrofit.Builder()
             .baseUrl(Api.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
