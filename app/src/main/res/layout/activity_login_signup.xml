@@ -35,7 +35,7 @@
         <EditText
             android:id="@+id/edEmailLogin"
             style="@style/editText"
-            android:layout_width="315dp"
+            android:layout_width="370dp"
             android:layout_height="52dp"
             android:layout_marginStart="46dp"
             android:layout_marginTop="291dp"
@@ -53,7 +53,7 @@
         <EditText
             android:id="@+id/edPasswordLogin"
             style="@style/editText"
-            android:layout_width="315dp"
+            android:layout_width="370dp"
             android:layout_height="52dp"
             android:layout_marginStart="46dp"
             android:layout_marginTop="362dp"
@@ -84,23 +84,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/buttonRegisterAccountOptions"
-            style="@style/h2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="255dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="492dp"
-            android:gravity="center"
-            android:text="Don't have an account? Register!"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/ForgotPasswordLogin"
@@ -112,7 +95,7 @@
             android:layout_marginEnd="132dp"
             android:layout_marginBottom="191dp"
             android:gravity="center"
-            android:text="Forgot Password"
+            android:text="©Wundersale 2024"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

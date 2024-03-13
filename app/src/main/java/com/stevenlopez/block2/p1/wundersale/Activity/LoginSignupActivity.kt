@@ -20,24 +20,24 @@ class LoginSignupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_signup)
 
         val buttonLogin: Button = findViewById(R.id.buttonLogin)
-        val emaillogin: EditText = findViewById(R.id.edEmailLogin)
-        val passwordlogin: EditText = findViewById(R.id.edPasswordLogin)
+        val emailLogin: EditText = findViewById(R.id.edEmailLogin)
+        val passwordLogin: EditText = findViewById(R.id.edPasswordLogin)
 
 
         buttonLogin.setOnClickListener {
 
-             val email = emaillogin.text.toString().trim()
-             val password = passwordlogin.text.toString().trim()
+             val email = emailLogin.text.toString().trim()
+             val password = passwordLogin.text.toString().trim()
 
             if(email.isEmpty()){
-                emaillogin.error = "Please enter email"
-                emaillogin.requestFocus()
+                emailLogin.error = "Please enter email"
+                emailLogin.requestFocus()
                 return@setOnClickListener
             }
 
             if(password.isEmpty()){
-                passwordlogin.error = "Please enter password"
-                passwordlogin.requestFocus()
+                passwordLogin.error = "Please enter password"
+                passwordLogin.requestFocus()
                 return@setOnClickListener
             }
 
@@ -52,6 +52,8 @@ class LoginSignupActivity : AppCompatActivity() {
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
                             startActivity(intent)
+                        }else{
+                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
                         }
                     }
 
