@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.data.RetrofitHelper
 import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
-import com.stevenlopez.block2.p1.wundersale.fragments.loginSignup.introductionFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,21 +46,24 @@ class LoginSignupActivity : AppCompatActivity() {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
-                        if(!response.body()?.error!!){
-                            val intent = Intent(applicationContext,ShoppingActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-                            startActivity(intent)
-                        }else{
-                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                        val responseBody = response.body()
+                        if(response.isSuccessful && responseBody != null) {
+                            if(!responseBody.error!!){
+                                val intent = Intent(applicationContext,ShoppingActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
+                            } else {
+                            }
+                        } else {
+                            Toast.makeText(applicationContext, "Incorrect Email or Password", Toast.LENGTH_LONG).show()
                         }
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                     }
-
                 })
+
         }
     }
 }
