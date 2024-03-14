@@ -48,12 +48,9 @@ class LoginSignupActivity : AppCompatActivity() {
                     ) {
                         val responseBody = response.body()
                         if(response.isSuccessful && responseBody != null) {
-                            if(!responseBody.error!!){
                                 val intent = Intent(applicationContext,ShoppingActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
-                            } else {
-                            }
                         } else {
                             Toast.makeText(applicationContext, "Incorrect Email or Password", Toast.LENGTH_LONG).show()
                         }
