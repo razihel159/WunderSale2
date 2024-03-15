@@ -66,6 +66,6 @@
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackground"
             android:text="Send"
-            android:textColor=""/>
+            android:textColor="@color/black"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
