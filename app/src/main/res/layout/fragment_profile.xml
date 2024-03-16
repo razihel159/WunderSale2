@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/g_l_green">
+    android:background="#26214a">
 
     <ImageView
         android:id="@+id/profile_image"
@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="105dp"
         android:layout_marginTop="136dp"
-        android:text="Steven Loverboy"
+        android:text="Steven "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
