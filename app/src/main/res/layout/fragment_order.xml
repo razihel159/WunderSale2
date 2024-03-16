@@ -1,11 +1,68 @@
+<!-- buyer_order_list_item.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
-    <ListView
-        android:id="@+id/listView_buyer_orders"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!-- Item Image -->
+    <ImageView
+        android:id="@+id/imageView_item_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_image"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
+    <!-- Order ID -->
+    <TextView
+        android:id="@+id/textView_order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order ID: #12345"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/imageView_item_image"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp" />
+
+    <!-- Item Name -->
+    <TextView
+        android:id="@+id/textView_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/textView_order_id"
+        android:layout_toEndOf="@id/imageView_item_image"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- Quantity -->
+    <TextView
+        android:id="@+id/textView_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity: 1"
+        android:textSize="14sp"
+        android:layout_below="@id/textView_item_name"
+        android:layout_toEndOf="@id/imageView_item_image"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- Total Price -->
+    <TextView
+        android:id="@+id/textView_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Price: $10.99"
+        android:textSize="14sp"
+        android:layout_below="@id/textView_quantity"
+        android:layout_toEndOf="@id/imageView_item_image"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp" />
 
 </RelativeLayout>
