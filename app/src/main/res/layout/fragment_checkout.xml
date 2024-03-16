@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_image" />
+        android:src="@drawable/upang_logo" />
 
     <!-- Item details -->
     <TextView
@@ -38,27 +38,5 @@
         android:textStyle="bold"
         android:layout_marginTop="8dp"/>
 
-    <!-- Quantity selection -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quantity:"
-        android:layout_marginTop="16dp"/>
-
-    <NumberPicker
-        android:id="@+id/numberPicker_quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minValue="1"
-        android:maxValue="10"
-        android:layout_marginTop="8dp"/>
-
-    <!-- Checkout button -->
-    <Button
-        android:id="@+id/button_checkout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Checkout"
-        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

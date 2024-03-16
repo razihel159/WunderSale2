@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_image"
+        android:src="@drawable/upang_logo"
         android:padding="16dp" />
 
     <TextView
@@ -50,7 +50,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:padding="12dp"
-        android:background="@drawable/button_background"
         android:textColor="@android:color/white"
         android:layout_centerHorizontal="true" />
 
