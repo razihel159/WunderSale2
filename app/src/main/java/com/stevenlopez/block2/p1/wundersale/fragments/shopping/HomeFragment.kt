@@ -1,10 +1,12 @@
 package com.stevenlopez.block2.p1.wundersale.fragments.shopping
 
+import CategoriesAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stevenlopez.block2.p1.wundersale.R
@@ -12,6 +14,7 @@ import com.stevenlopez.block2.p1.wundersale.adapters.ItemAdapter
 import com.stevenlopez.block2.p1.wundersale.data.model.Product
 import com.stevenlopez.block2.p1.wundersale.data.model.ProductResponse
 import com.stevenlopez.block2.p1.wundersale.data.Api
+import com.stevenlopez.block2.p1.wundersale.data.model.Category
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,9 +23,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerViewProducts: RecyclerView
+    private lateinit var recyclerViewCategories: RecyclerView
     private lateinit var itemAdapter: ItemAdapter
-    private var productList: MutableList<Product> = mutableListOf()
+    private lateinit var categoriesAdapter: CategoriesAdapter
+    private val productList: MutableList<Product> = mutableListOf()
+    private val categoryList: MutableList<Category> = mutableListOf()
+    val authToken = "C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,13 +38,18 @@ class HomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // Initialize RecyclerView
-        recyclerView = root.findViewById(R.id.products_list)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        itemAdapter = ItemAdapter(productList)
-        recyclerView.adapter = itemAdapter
 
-        // Fetch products using Retrofit
+        recyclerViewProducts = root.findViewById(R.id.products_list)
+        recyclerViewProducts.layoutManager = GridLayoutManager(requireContext(), 2)
+        itemAdapter = ItemAdapter(productList)
+        recyclerViewProducts.adapter = itemAdapter
+
+        recyclerViewCategories = root.findViewById(R.id.category_list)
+        recyclerViewCategories.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        categoriesAdapter = CategoriesAdapter(categoryList)
+        recyclerViewCategories.adapter = categoriesAdapter
+
+
         fetchProducts()
 
         return root
@@ -45,27 +57,33 @@ class HomeFragment : Fragment() {
 
     private fun fetchProducts() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://wundersale.shop/api/") // Replace with your base URL
+            .baseUrl("https://wundersale.shop/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val service = retrofit.create(Api::class.java)
-        val call = service.getItems()
+        val call = service.getItems("Bearer $authToken")
 
         call.enqueue(object : Callback<ProductResponse> {
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
                 if (response.isSuccessful) {
-                    val products = response.body()?.items ?: emptyList()
-                    productList.clear() // Clear the list before adding new items
-                    productList.addAll(products)
-                    itemAdapter.notifyDataSetChanged()
+                    val productResponse = response.body()
+                    productResponse?.let {
+                        productList.clear()
+                        productList.addAll(it.items)
+                        itemAdapter.notifyDataSetChanged()
+
+                        categoryList.clear()
+                        categoryList.addAll(it.categories)
+                        categoriesAdapter.notifyDataSetChanged()
+                    }
                 } else {
-                    // Handle unsuccessful response
+
                 }
             }
 
             override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-                // Handle failure
+
             }
         })
     }

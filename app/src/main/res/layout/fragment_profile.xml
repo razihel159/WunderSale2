@@ -18,11 +18,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uploadProduct"
         style="@style/blueButtonStyle"
         android:layout_width="223dp"
         android:layout_height="53dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="435dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="380dp"
         android:background="#489331"
         android:text="Upload Product"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,5 +40,18 @@
         android:text="Log Out"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myOrdersList"
+        style="@style/blueButtonStyle"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="452dp"
+        android:background="#489331"
+        android:text="Orders List"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

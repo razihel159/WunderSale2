@@ -38,5 +38,19 @@
         android:textStyle="bold"
         android:layout_marginTop="8dp"/>
 
+    <Button
+        android:id="@+id/button_add_to_cart"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_item_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="12dp"
+        android:text="Confirm Checkout"
+        android:backgroundTint="#3a98dc"
+        android:textColor="@android:color/white" />
+
 
 </LinearLayout>

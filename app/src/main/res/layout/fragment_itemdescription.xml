@@ -41,17 +41,32 @@
         android:padding="16dp" />
 
     <Button
-        android:id="@+id/button_add_to_cart"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_buy_now"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_item_price"
-        android:text="Add to Cart"
-        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
         android:layout_marginRight="16dp"
         android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:layout_centerHorizontal="true" />
+        android:text="Buy Now!"
+        android:backgroundTint="#3a98dc"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/button_add_to_cart"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_item_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginRight="16dp"
+        android:padding="12dp"
+        android:text="Add to Cart"
+        android:backgroundTint="#489331"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
 
