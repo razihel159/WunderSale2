@@ -75,7 +75,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_gravity="end"
-                    android:backgroundTint="@color/g_blue100"/>
+                    android:backgroundTint="#489331"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                     android:text="Checkout Item"
                     android:id="@+id/purchase_item"
                     android:layout_gravity="end"
-                    android:backgroundTint="@color/g_dark_blue"/>
+                    android:backgroundTint="@color/g_green"/>
             </LinearLayout>
 
         </LinearLayout>

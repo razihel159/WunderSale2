@@ -23,7 +23,7 @@
         android:layout_height="53dp"
         android:layout_marginStart="94dp"
         android:layout_marginTop="435dp"
-        android:background="@color/g_green"
+        android:background="#489331"
         android:text="Upload Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
         android:layout_height="53dp"
         android:layout_marginStart="93dp"
         android:layout_marginTop="527dp"
-        android:background="@color/g_green"
+        android:background="#489331"
         android:text="Log Out"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
