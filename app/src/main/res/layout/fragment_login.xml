@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/g_orange_yellow">
+    android:background="#F2F3F5">
 
     <ImageView
         android:layout_width="930dp"
@@ -15,22 +15,24 @@
         android:layout_width="match_parent"
         android:layout_height="776dp">
 
-        <TextView
+        <ImageView
             android:id="@+id/tvRightAddressForShopping"
             style="@style/h4"
-            android:layout_width="291dp"
-            android:layout_height="68dp"
+            android:layout_width="419dp"
+            android:layout_height="144dp"
             android:layout_marginTop="150dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="558dp"
             android:gravity="center"
-            android:text="Let's Start Up!"
+            android:src="@drawable/wundersalelogo"
             android:textAlignment="center"
             android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/edEmailLogin"
@@ -111,7 +113,7 @@
             android:layout_marginEnd="132dp"
             android:layout_marginBottom="191dp"
             android:gravity="center"
-            android:text="Forgot Password"
+            android:text="Forgot Password?"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

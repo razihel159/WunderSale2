@@ -8,38 +8,12 @@
 
     <ImageView
         android:id="@+id/profile_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="362dp"
+        android:layout_height="273dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/profile_placeholder"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profile_image"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="136dp"
-        android:text="Steven "
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="177dp"
-        android:text="stevenxekari@email.com"
-        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/wundersalelogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
