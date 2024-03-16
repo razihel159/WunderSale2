@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editText_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Item Name" />
+
+    <EditText
+        android:id="@+id/editText_item_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Item Description"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/editText_item_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price (e.g., 10.99)"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/button_upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:layout_marginTop="16dp"/>
+
+    <!-- ImageView to display the uploaded image -->
+    <ImageView
+        android:id="@+id/imageView_uploaded_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_add_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Item"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
+
