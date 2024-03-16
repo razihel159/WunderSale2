@@ -18,8 +18,8 @@
         <ImageView
             android:id="@+id/tvRightAddressForShopping"
             style="@style/h4"
-            android:layout_width="419dp"
-            android:layout_height="144dp"
+            android:layout_width="412dp"
+            android:layout_height="137dp"
             android:layout_marginTop="150dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="558dp"
