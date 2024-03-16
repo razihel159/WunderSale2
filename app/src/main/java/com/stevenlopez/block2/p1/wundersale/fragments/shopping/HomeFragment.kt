@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stevenlopez.block2.p1.wundersale.R
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemAdapter: ItemAdapter
     private var productList: MutableList<Product> = mutableListOf()
+    val authToken = "C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,13 +33,13 @@ class HomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // Initialize RecyclerView
+
         recyclerView = root.findViewById(R.id.products_list)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         itemAdapter = ItemAdapter(productList)
         recyclerView.adapter = itemAdapter
 
-        // Fetch products using Retrofit
+
         fetchProducts()
 
         return root
@@ -45,27 +47,27 @@ class HomeFragment : Fragment() {
 
     private fun fetchProducts() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://wundersale.shop/api/") // Replace with your base URL
+            .baseUrl("https://wundersale.shop/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val service = retrofit.create(Api::class.java)
-        val call = service.getItems()
+        val call = service.getItems("Bearer $authToken")
 
         call.enqueue(object : Callback<ProductResponse> {
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
                 if (response.isSuccessful) {
                     val products = response.body()?.items ?: emptyList()
-                    productList.clear() // Clear the list before adding new items
+                    productList.clear()
                     productList.addAll(products)
                     itemAdapter.notifyDataSetChanged()
                 } else {
-                    // Handle unsuccessful response
+
                 }
             }
 
             override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-                // Handle failure
+
             }
         })
     }
