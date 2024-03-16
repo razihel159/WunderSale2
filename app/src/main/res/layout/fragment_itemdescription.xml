@@ -1,26 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="fill_parent" android:layout_width="fill_parent"
-    android:background="#ffffff" android:orientation="vertical">
-    <LinearLayout android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:id="@+id/LinearLayoutHeader"
-        android:orientation="horizontal">
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/ImageViewProduct"
-            android:adjustViewBounds="true" android:scaleType="fitXY"
-            android:src="" android:layout_margin="5dip"></ImageView>
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/TextViewProductTitle"
-            android:layout_gravity="center" android:layout_margin="5dip"
-            android:textSize="26dip" android:text="ITEM NAME"
-            android:textColor="#000000"></TextView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    </LinearLayout>
-    <TextView android:layout_height="wrap_content" android:id="@+id/TextViewProductDetails"
-        android:layout_width="fill_parent" android:layout_margin="5dip"
-        android:layout_weight="1" android:textColor="#000000" android:text="Product description"></TextView>
-    <Button android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_margin="5dip"
-        android:layout_gravity="right" android:id="@+id/ButtonAddToCart"
-        android:text="Add to Cart"></Button>
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="377dp"
+        android:layout_height="235dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/upang_logo" />
+
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Title"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/item_image"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_image"
+        android:layout_marginTop="45dp"
+        android:text="Item Description"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_title"
+        android:layout_marginTop="38dp"
+        android:text="$20.00"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/add_to_cart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_price"
+        android:layout_marginTop="63dp"
+        android:text="Add to Cart" />
+
+    <Button
+        android:id="@+id/buy_now_button"
+        android:layout_width="118dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/item_price"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="67dp"
+        android:layout_toEndOf="@id/add_to_cart_button"
+        android:text="Buy Now" />
+</RelativeLayout>

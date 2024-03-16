@@ -59,13 +59,14 @@
             android:inputType="text"
             android:maxLines="6"
             tools:ignore="Autofill"/>
+
         <Button
             android:id="@+id/button_gchat_send"
-            android:layout_width="64dp"
+            android:layout_width="100dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackground"
             android:text="Send"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
