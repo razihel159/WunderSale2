@@ -1,5 +1,6 @@
 package com.stevenlopez.block2.p1.wundersale.fragments.shopping
 
+import ProfileInfoFragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.stevenlopez.block2.p1.wundersale.Activity.LoginSignupActivity
 import com.stevenlopez.block2.p1.wundersale.R
-import com.stevenlopez.block2.p1.wundersale.fragments.categories.ProfileInfoFragment
 
 class ProfileFragment: Fragment(){
 

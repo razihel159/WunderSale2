@@ -24,8 +24,9 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="424dp"
-        android:layout_height="408dp"
+        android:id="@+id/recycler_view_cart"
+        android:layout_width="390dp"
+        android:layout_height="407dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="86dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +37,8 @@
         style="@style/blueButtonStyle"
         android:layout_width="167dp"
         android:layout_height="48dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="592dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="628dp"
         android:background="#489331"
         android:text="Checkout"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,10 +56,10 @@
         android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765">
+        app:layout_constraintVertical_bias="0.854">
 
         <LinearLayout
             android:layout_width="match_parent"

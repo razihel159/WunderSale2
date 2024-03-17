@@ -63,13 +63,34 @@
                     android:textSize="16sp"
                     android:textColor="@android:color/black" />
 
-                <EditText
-                    android:id="@+id/quantity_edittext"
-                    android:layout_width="50dp"
+                <Button
+                    android:id="@+id/minus_button"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="-"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/quantity_textview"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:hint="1"
-                    android:layout_marginStart="8dp" />
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/plus_button"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="+"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
 
 
             </LinearLayout>

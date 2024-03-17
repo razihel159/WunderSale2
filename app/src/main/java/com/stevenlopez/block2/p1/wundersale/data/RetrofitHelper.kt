@@ -1,6 +1,7 @@
 package com.stevenlopez.block2.p1.wundersale.data
 
 import com.stevenlopez.block2.p1.wundersale.util.Utils
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,6 +13,14 @@ object RetrofitHelper {
 
     private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    private val authInterceptor = Interceptor { chain ->
+        val original = chain.request()
+        val requestBuilder = original.newBuilder()
+            .header("Authorization", "Bearer C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d") // Add your token here
+        val request = requestBuilder.build()
+        chain.proceed(request)
     }
 
     private val client: OkHttpClient = OkHttpClient.Builder()
@@ -26,4 +35,5 @@ object RetrofitHelper {
             .build()
             .create(Api::class.java)
     }
+
 }
