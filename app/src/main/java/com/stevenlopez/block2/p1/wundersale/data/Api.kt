@@ -4,6 +4,7 @@ import com.stevenlopez.block2.p1.wundersale.data.model.CartResponse
 import com.stevenlopez.block2.p1.wundersale.data.model.ProductResponse
 import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
 import com.stevenlopez.block2.p1.wundersale.data.model.Product
+import com.stevenlopez.block2.p1.wundersale.data.model.ProfileResponse
 import com.stevenlopez.block2.p1.wundersale.data.model.User
 import retrofit2.Call
 import retrofit2.http.Field
@@ -26,9 +27,8 @@ interface Api {
 
     @GET("items")
     fun getItems(@Header("Authorization") token: String): Call<ProductResponse>
-    suspend fun getProductById(@Path("productId") productId: Int): Product
-    @GET("seller/{id}/profile")
-    fun getUser(@Path("id") id: Int): Call<User>
+    @GET("profile")
+    fun getUser(@Header("Authorization") token: String): Call<ProfileResponse>
     @GET("cart") // Replace "cart" with the actual endpoint to fetch cart items
     fun getCart(@Header("Authorization") authToken: String): Call<CartResponse>
 

@@ -1,13 +1,16 @@
+
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.data.Api
-import com.stevenlopez.block2.p1.wundersale.data.RetrofitHelper
-import com.stevenlopez.block2.p1.wundersale.data.model.User
+import com.stevenlopez.block2.p1.wundersale.data.model.ProfileResponse
+import com.stevenlopez.block2.p1.wundersale.fragments.shopping.ProfileFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,54 +18,71 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ProfileInfoFragment : Fragment() {
-    private lateinit var rootView: View
-    private val userID = 3
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var profileAdapter: ProfileAdapter
+    private var profileList: List<ProfileResponse> = emptyList()
+    val authToken = "C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_profileinfo, container, false)
-        return rootView
+        val view = inflater.inflate(R.layout.fragment_profileinfo, container, false)
+
+        recyclerView = view.findViewById(R.id.myProfile)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        profileAdapter = ProfileAdapter(profileList)
+        recyclerView.adapter = profileAdapter
+
+        fetchData()
+
+        return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        fetchUserData()
-    }
-
-    private fun fetchUserData() {
+    private fun fetchData() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://wundersale.shop/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val service = retrofit.create(Api::class.java)
-        val authToken = "C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d"
-        val headers = HashMap<String, String>()
-        headers["Authorization"] = "Bearer $authToken"
-        val call = service.getUser(userID)
 
-        call.enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+        val service = retrofit.create(Api::class.java)
+        val call = service.getUser("Bearer $authToken") // Assuming the API call is to get the profile
+
+        call.enqueue(object : Callback<ProfileResponse> {
+            override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
                 if (response.isSuccessful) {
-                    val user = response.body()
-                    user?.let { updateUserDetails(it) }
+                    response.body()?.let {
+                        profileList = listOf(it) // Assuming your API returns a single profile
+                        profileAdapter.setData(profileList)
+                    }
                 } else {
                     // Handle unsuccessful response
                 }
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
                 // Handle failure
             }
         })
     }
+    fun updateProfileList(newProfileList: List<ProfileResponse>) {
+        profileList = newProfileList
+        profileAdapter.setData(profileList)
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    private fun updateUserDetails(user: User) {
-        requireActivity().runOnUiThread {
-            rootView.findViewById<TextView>(R.id.text_name)?.text = user?.name
-            rootView.findViewById<TextView>(R.id.text_email)?.text = user?.email
-            rootView.findViewById<TextView>(R.id.text_stunum)?.text = user?.student_number
+        val backButton = view.findViewById<Button>(R.id.BackButton)
+
+        backButton.setOnClickListener{
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(
+                R.id.shoppingHostFragment,
+                ProfileFragment()
+            )
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 }
