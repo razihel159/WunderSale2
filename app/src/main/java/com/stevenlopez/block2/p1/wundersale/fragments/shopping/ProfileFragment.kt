@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.stevenlopez.block2.p1.wundersale.Activity.LoginSignupActivity
 import com.stevenlopez.block2.p1.wundersale.R
+import com.stevenlopez.block2.p1.wundersale.fragments.categories.ProfileInfoFragment
 
 class ProfileFragment: Fragment(){
 
@@ -25,12 +26,23 @@ class ProfileFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val logoutButton = view.findViewById<Button>(R.id.LogOut)
+        val profileButton = view.findViewById<Button>(R.id.myProfile)
 
         logoutButton.setOnClickListener {
             Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
             val intent = Intent(requireContext(), LoginSignupActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
+        }
+
+        profileButton.setOnClickListener{
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(
+                R.id.shoppingHostFragment,
+                ProfileInfoFragment()
+            )
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 }

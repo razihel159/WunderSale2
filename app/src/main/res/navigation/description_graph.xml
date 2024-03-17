@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/description_graph"
+    app:startDestination="@id/itemDescriptionFragment2">
+    <fragment
+        android:id="@+id/itemDescriptionFragment2"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.shopping.ItemDescriptionFragment"
+        android:label="ItemDescriptionFragment" />
+</navigation>

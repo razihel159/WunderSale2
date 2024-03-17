@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WunderSale</string>
     <string name="rightaddress">The Right Shop\nFor Scholar Students!</string>
+    <string name="price_format">Price: $%1$.2f</string>
 </resources>

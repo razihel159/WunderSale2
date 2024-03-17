@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
 
         recyclerViewProducts = root.findViewById(R.id.products_list)
         recyclerViewProducts.layoutManager = GridLayoutManager(requireContext(), 2)
-        itemAdapter = ItemAdapter(productList)
+        itemAdapter = ItemAdapter(requireContext(), productList)
         recyclerViewProducts.adapter = itemAdapter
 
         recyclerViewCategories = root.findViewById(R.id.category_list)
@@ -88,3 +88,35 @@ class HomeFragment : Fragment() {
         })
     }
 }
+
+//call.enqueue(object : Callback<ProductResponse> {
+//            override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+//                if (response.isSuccessful) {
+//                    val productResponse = response.body()
+//                    productResponse?.let {
+//                        productList.clear()
+//                        productList.addAll(it.items)
+//                        itemAdapter.notifyDataSetChanged()
+//
+//                        categoryList.clear()
+//                        categoryList.addAll(it.categories)
+//                        categoriesAdapter.notifyDataSetChanged()
+//                    }
+//                } else {
+//
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+//
+//           }
+//        })
+//    }
+//    override fun onItemClick(productId: String) {
+//        val productIdInt = productId.toIntOrNull() ?: return
+//        val transaction = parentFragmentManager.beginTransaction()
+//        transaction.replace(R.id.descriptionFragment, ItemDescriptionFragment.newInstance(productIdInt))
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+//    }
+//}

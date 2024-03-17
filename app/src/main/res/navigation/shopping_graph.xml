@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemDescriptionFragment"
+            app:destination="@id/itemDescriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -65,4 +68,8 @@
             android:id="@+id/action_cartFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/itemDescriptionFragment"
+        android:name="com.stevenlopez.block2.p1.wundersale.fragments.shopping.ItemDescriptionFragment"
+        android:label="ItemDescriptionFragment" />
 </navigation>

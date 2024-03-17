@@ -12,7 +12,7 @@
         android:layout_height="273dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/wundersalelogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="384dp"
         android:background="#489331"
         android:text="Upload Product"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +34,8 @@
         style="@style/blueButtonStyle"
         android:layout_width="223dp"
         android:layout_height="53dp"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="527dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="520dp"
         android:background="#489331"
         android:text="Log Out"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,31 @@
         android:layout_marginStart="92dp"
         android:layout_marginTop="452dp"
         android:background="#489331"
-        android:text="Orders List"
+        android:text="Your Orders"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/manageAccount"
+        style="@style/blueButtonStyle"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="452dp"
+        android:background="#489331"
+        android:text="Manage Account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myProfile"
+        style="@style/blueButtonStyle"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="316dp"
+        android:background="#489331"
+        android:text="My Profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

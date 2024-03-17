@@ -1,5 +1,7 @@
 package com.stevenlopez.block2.p1.wundersale.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.stevenlopez.block2.p1.wundersale.Activity.ItemDescription
 import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.data.model.Product
 
-class ItemAdapter(private val productList: List<Product>) :
+class ItemAdapter(private val context: Context, private val productList: List<Product>) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -35,6 +38,12 @@ class ItemAdapter(private val productList: List<Product>) :
             .placeholder(R.drawable.upang_logo)
             .into(holder.imageProduct)
         Log.d("Image URL", imageUrl)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ItemDescription::class.java)
+            intent.putExtra("productId", currentItem.id)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -48,3 +57,4 @@ class ItemAdapter(private val productList: List<Product>) :
         val textProductPrice: TextView = itemView.findViewById(R.id.textProductPrice)
     }
 }
+
