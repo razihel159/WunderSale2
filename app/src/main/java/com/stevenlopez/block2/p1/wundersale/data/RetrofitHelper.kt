@@ -1,39 +1,50 @@
 package com.stevenlopez.block2.p1.wundersale.data
 
-import com.stevenlopez.block2.p1.wundersale.util.Utils
+import android.content.Context
+import android.content.SharedPreferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
-import java.util.concurrent.TimeUnit
 
 object RetrofitHelper {
 
-    private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var instance: Api
+
+    fun setSharedPreferences(context: Context) {
+        // Assuming you have a way to get SharedPreferences from the context
+        sharedPreferences = context.getSharedPreferences("YourSharedPrefsName", Context.MODE_PRIVATE)
     }
 
-    private val authInterceptor = Interceptor { chain ->
-        val original = chain.request()
-        val requestBuilder = original.newBuilder()
-            .header("Authorization", "Bearer C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d") // Add your token here
-        val request = requestBuilder.build()
-        chain.proceed(request)
-    }
+    fun createService(serviceClass: Class<Api>): Api {
+        // Get the token from SharedPreferences
+        val token = sharedPreferences.getString("token", "")
 
-    private val client: OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
-        .build()
+        // Create an OkHttpClient with the auth interceptor
+        val client = OkHttpClient.Builder()
+            .addInterceptor(createAuthInterceptor(token.orEmpty()))
+            .build()
 
-    val instance: Api by lazy {
-        Retrofit.Builder()
+        // Create Retrofit instance
+        instance = Retrofit.Builder()
             .baseUrl(Api.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-            .create(Api::class.java)
+            .create(serviceClass)
+
+        return instance
     }
 
+    private fun createAuthInterceptor(token: String): Interceptor {
+        return Interceptor { chain ->
+            val original = chain.request()
+            val requestBuilder = original.newBuilder()
+                .header("Authorization", "Bearer $token")
+            val request = requestBuilder.build()
+            chain.proceed(request)
+        }
+    }
 }

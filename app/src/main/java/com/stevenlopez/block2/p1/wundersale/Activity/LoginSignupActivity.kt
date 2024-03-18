@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.stevenlopez.block2.p1.wundersale.R
+import com.stevenlopez.block2.p1.wundersale.data.Api
 import com.stevenlopez.block2.p1.wundersale.data.RetrofitHelper
 import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
 import retrofit2.Call
@@ -18,15 +19,16 @@ class LoginSignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_signup)
 
+        // Set the application context for RetrofitHelper
+        RetrofitHelper.setSharedPreferences(applicationContext)
+
         val buttonLogin: Button = findViewById(R.id.buttonLogin)
         val emailLogin: EditText = findViewById(R.id.edEmailLogin)
         val passwordLogin: EditText = findViewById(R.id.edPasswordLogin)
 
-
         buttonLogin.setOnClickListener {
-
-             val email = emailLogin.text.toString().trim()
-             val password = passwordLogin.text.toString().trim()
+            val email = emailLogin.text.toString().trim()
+            val password = passwordLogin.text.toString().trim()
 
             if(email.isEmpty()){
                 emailLogin.error = "Please enter email"
@@ -40,27 +42,29 @@ class LoginSignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            RetrofitHelper.instance.login(email, password)
-                .enqueue(object: Callback<LoginResponse>{
-                    override fun onResponse(
-                        call: Call<LoginResponse>,
-                        response: Response<LoginResponse>
-                    ) {
-                        val responseBody = response.body()
-                        if(response.isSuccessful && responseBody != null) {
-                                val intent = Intent(applicationContext,ShoppingActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                startActivity(intent)
-                        }else{
-                            Toast.makeText(applicationContext, "Incorrect Email or Password", Toast.LENGTH_LONG).show()
-                        }
-                    }
+            // Get the token from SharedPreferences
+            val service = RetrofitHelper.createService(Api::class.java)
+            val call = service.login(email, password)
 
-                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                    }
-                })
+            call.enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    val responseBody = response.body()
+                    if(response.isSuccessful && responseBody != null) {
+                        // Save token to SharedPreferences
+                        LoginResponse.saveToken(applicationContext, responseBody.token)
 
+                        val intent = Intent(applicationContext, ShoppingActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(applicationContext, "Incorrect Email or Password", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 }

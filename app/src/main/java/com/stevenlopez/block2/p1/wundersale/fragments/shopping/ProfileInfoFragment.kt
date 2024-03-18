@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.data.Api
+import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
 import com.stevenlopez.block2.p1.wundersale.data.model.ProfileResponse
 import com.stevenlopez.block2.p1.wundersale.fragments.shopping.ProfileFragment
 import retrofit2.Call
@@ -41,30 +42,36 @@ class ProfileInfoFragment : Fragment() {
     }
 
     private fun fetchData() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://wundersale.shop/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        val authToken = LoginResponse.getToken(requireContext()) // Retrieve token from SharedPreferences
 
-        val service = retrofit.create(Api::class.java)
-        val call = service.getUser("Bearer $authToken") // Assuming the API call is to get the profile
+        authToken?.let { token ->
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://wundersale.shop/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
-        call.enqueue(object : Callback<ProfileResponse> {
-            override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        profileList = listOf(it) // Assuming your API returns a single profile
-                        profileAdapter.setData(profileList)
+            val service = retrofit.create(Api::class.java)
+            val call = service.getUser("Bearer $token") // Include token in the request header
+
+            call.enqueue(object : Callback<ProfileResponse> {
+                override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            profileList = listOf(it) // Assuming your API returns a single profile
+                            profileAdapter.setData(profileList)
+                        }
+                    } else {
+                        // Handle unsuccessful response
                     }
-                } else {
-                    // Handle unsuccessful response
                 }
-            }
 
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
-                // Handle failure
-            }
-        })
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                    // Handle failure
+                }
+            })
+        } ?: run {
+            // Token is null, handle this scenario
+        }
     }
     fun updateProfileList(newProfileList: List<ProfileResponse>) {
         profileList = newProfileList

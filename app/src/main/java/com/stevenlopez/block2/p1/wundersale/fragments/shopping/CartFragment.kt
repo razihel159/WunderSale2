@@ -12,6 +12,7 @@ import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.data.Api
 import com.stevenlopez.block2.p1.wundersale.data.model.CartItem
 import com.stevenlopez.block2.p1.wundersale.data.model.CartResponse
+import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,27 +45,32 @@ class CartFragment : Fragment() {
             .baseUrl("https://wundersale.shop/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         val service = retrofit.create(Api::class.java)
-        val authToken = "C26wYxYlMQVo7skNRLm1kWhJ0nf5Xt4IkqziPLFyc2d7a21d"
+        val authToken = LoginResponse.getToken(requireContext()) // Retrieve token from SharedPreferences
 
-        val call = service.getCart("Bearer $authToken")
-        call.enqueue(object : Callback<CartResponse> {
-            override fun onResponse(call: Call<CartResponse>, response: Response<CartResponse>) {
-                if (response.isSuccessful) {
-                    val cartResponse = response.body()
-                    cartResponse?.let {
-                        // Pass the cart items to the adapter
-                        cartAdapter = CartAdapter(it.cartItems) // Ensure it.cartItems is a List<CartItem>
-                        recyclerView.adapter = cartAdapter
+        authToken?.let { token ->
+            val call = service.getCart("Bearer $token")
+            call.enqueue(object : Callback<CartResponse> {
+                override fun onResponse(call: Call<CartResponse>, response: Response<CartResponse>) {
+                    if (response.isSuccessful) {
+                        val cartResponse = response.body()
+                        cartResponse?.let {
+                            // Pass the cart items to the adapter
+                            cartAdapter = CartAdapter(it.cartItems) // Ensure it.cartItems is a List<CartItem>
+                            recyclerView.adapter = cartAdapter
+                        }
+                    } else {
+                        // Handle unsuccessful response
                     }
-                } else {
-                    // Handle unsuccessful response
                 }
-            }
 
-            override fun onFailure(call: Call<CartResponse>, t: Throwable) {
-                // Handle failure
-            }
-        })
+                override fun onFailure(call: Call<CartResponse>, t: Throwable) {
+                    // Handle failure
+                }
+            })
+        } ?: run {
+            // Token is null, handle this scenario
+        }
     }
 }
