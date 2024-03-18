@@ -1,5 +1,9 @@
+package com.stevenlopez.block2.p1.wundersale.fragments.shopping
+
 import CategoriesAdapter
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stevenlopez.block2.p1.wundersale.R
 import com.stevenlopez.block2.p1.wundersale.adapters.ItemAdapter
+import com.stevenlopez.block2.p1.wundersale.data.Api
 import com.stevenlopez.block2.p1.wundersale.data.model.Product
 import com.stevenlopez.block2.p1.wundersale.data.model.ProductResponse
-import com.stevenlopez.block2.p1.wundersale.data.Api
 import com.stevenlopez.block2.p1.wundersale.data.model.Category
-import com.stevenlopez.block2.p1.wundersale.data.RetrofitHelper
+import com.stevenlopez.block2.p1.wundersale.data.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,9 +50,14 @@ class HomeFragment : Fragment() {
         categoriesAdapter = CategoriesAdapter(categoryList)
         recyclerViewCategories.adapter = categoriesAdapter
 
-        // Retrieve the authentication token from SharedPreferences using RetrofitHelper
-        val authToken = getAuthToken()
-        fetchProducts(authToken)
+        // Retrieve the authentication token from SharedPreferences
+        val authToken = getAuthToken(requireContext())
+        if (authToken.isNullOrEmpty()) {
+            Log.e("HomeFragment", "Authentication token is null or empty")
+            // Handle the case where token is null or empty
+        } else {
+            fetchProducts(authToken)
+        }
 
         return root
     }
@@ -76,21 +85,19 @@ class HomeFragment : Fragment() {
                         categoriesAdapter.notifyDataSetChanged()
                     }
                 } else {
-
+                    // Handle unsuccessful response
+                    Log.e("HomeFragment", "Failed to fetch products: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-
+                // Handle failure
+                Log.e("HomeFragment", "Failed to fetch products: ${t.message}")
             }
         })
     }
 
-    private fun getAuthToken(): String {
-        // Retrieve the authentication token from SharedPreferences using RetrofitHelper
-        val context = requireContext().applicationContext
-        RetrofitHelper.setSharedPreferences(context)
-        val token = RetrofitHelper.sharedPreferences.getString("token", "")
-        return token ?: "" // Return the token if available, otherwise return an empty string
+    private fun getAuthToken(context: Context): String? {
+        return LoginResponse.getToken(context)
     }
 }
