@@ -1,0 +1,78 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="303dp"
+            android:padding="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/upang_logo" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_image"
+            android:text="Item Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name"
+            android:text="Item Description"
+            android:textSize="16sp"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_description"
+            android:text="Price: $10.99"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/buy_now"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_price"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="16dp"
+            android:padding="12dp"
+            android:text="Buy Now!"
+            android:backgroundTint="#3a98dc"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_price"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginRight="16dp"
+            android:padding="12dp"
+            android:text="Add to Cart"
+            android:backgroundTint="#489331"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

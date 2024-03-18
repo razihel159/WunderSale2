@@ -8,5 +8,6 @@ data class Item(
     val description: String,
     val price: String,
     @SerializedName("image") val imageUrl: String,
-    val quantity: Int
+    val quantity: Int,
+
 )
